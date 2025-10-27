@@ -7,3 +7,18 @@ module.exports = defineConfig({
     },
   },
 });
+
+module.exports = defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      // event config di sini (jika ada)
+    },
+  },
+  reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    overwrite: false,
+    html: false,
+    json: true,
+  },
+});

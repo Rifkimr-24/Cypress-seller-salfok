@@ -43,25 +43,43 @@ Cypress.Commands.add('fillRandomUserData', (formSelectors) => {
   cy.get(formSelectors.phone).type(faker.phone.number());
 });
 
-import loginPage from '../support/pageobject/Login';
-
-// login successful
-Cypress.Commands.add('loginSuccesful', (email, password) => {
-  loginPage.loginSuccesful(email, password);
-});
-
-// login invalid
-Cypress.Commands.add('loginInvalid', (email, password) => {
-  loginPage.loginInvalid(email, password);
-});
 
 import './commands';
+import loginInvalid from '../support/pageobject/loginInvalid';
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   if (err.message.includes("Minified React error #418")) {
     return false; // abaikan error react
   }
 });
+
+
+
+
+import loginPage from '../support/pageobject/Login';
+// login successful
+Cypress.Commands.add('loginSuccesful', (email, password) => {
+  loginPage.loginSuccesful(email, password);
+});
+
+import loginInvalidPage from '../support/pageobject/loginInvalid';
+// login invalid
+Cypress.Commands.add('loginInvalid', (email, password) => {
+  loginInvalidPage.loginInvalid(email, password);
+});
+
+import analitikPage from '../support/pageobject/analitik';
+//  Validasi UI Analitik
+Cypress.Commands.add('analitikPage', () => {
+  analitikPage.analitik();
+});
+
+import tambahProduk from '../support/pageobject/createProduk';
+//tambah produk
+Cypress.Commands.add('tambahProduk', () => {
+tambahProduk.tambahProdukBaru();
+});
+
 
 
 

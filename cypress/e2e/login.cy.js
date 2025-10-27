@@ -1,5 +1,5 @@
-const pageobject = require ('../support/pageobject/Login');
-const support = require ('../support/commands');
+const loginPage = require ('../support/pageobject/Login');
+const loginInvalidPage = require ('../support/pageobject/loginInvalid');
 
 describe('Login Page', () => {
   it('should show login form after visit', () => {
@@ -7,7 +7,7 @@ describe('Login Page', () => {
   });
 
   it('Login with invalid data', () => {
-  cy.logiInvalid("rifki.rahman@salfok.com", "Bandung199!");
+  cy.loginInvalid("rifki.rahman@salfok.com", "Bandung199!");
 
   });
 })
