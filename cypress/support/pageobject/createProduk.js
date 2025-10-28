@@ -111,22 +111,6 @@ class tambahProduk {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     };
 };
 export default new tambahProduk();

@@ -81,10 +81,17 @@ Cypress.Commands.add('analitikPage', () => {
 });
 
 import tambahProduk from '../support/pageobject/createProduk';
-//tambah produk
+// tambah produk
 Cypress.Commands.add('tambahProduk', () => {
 tambahProduk.tambahProdukBaru();
 });
+
+import tambahDiskon from '../support/pageobject/createDiscount'
+// Tambah Diskon
+Cypress.Commands.add('tambahDiskon', () => {
+  tambahDiskon.buatDiskon();
+});
+
 
 
 
