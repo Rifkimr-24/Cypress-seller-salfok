@@ -54,6 +54,12 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 });
 
 
+Cypress.Commands.add('waitUntilReady', () => {
+  cy.get('body', { timeout: 10000 })
+    .should('not.have.attr', 'style', 'pointer-events: none;');
+});
+
+
 
 
 import loginPage from '../support/pageobject/Login';
