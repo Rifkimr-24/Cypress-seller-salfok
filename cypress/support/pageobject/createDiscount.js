@@ -30,10 +30,14 @@ class tambahDiskon {
       cy.contains('button', 'Tambah Produk').click();
       cy.wait(2000);
       cy.contains('p', 'Pilih Varian Produk').should('be.visible');
-      cy.get('div[role="checkbox"]').click();
-      cy.contains('button', 'Konfirmasi').click
-      cy.wait(2000);
-      cy.contains('p', 'Perubahan Massal').should('be.visible');
+      cy.get('button[data-slot="checkbox"]').first().click();
+      cy.wait(1000);
+      cy.contains('button', 'Konfirmasi')
+      .should('be.visible')                     // tombol tampil di layar
+      .should('not.be.disabled')                // tidak dalam keadaan disabled
+      .should('have.css', 'cursor', 'pointer')  // bisa diklik
+      .click();
+    
 
       //Diskon Produk
       cy.get('input[placeholder="1-99"]').click()

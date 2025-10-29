@@ -92,6 +92,12 @@ Cypress.Commands.add('tambahDiskon', () => {
   tambahDiskon.buatDiskon();
 });
 
+import tambahVoucher from '../support/pageobject/createVoucher'
+// Tambah Voucher
+Cypress.Commands.add('tambahVoucher', () => {
+tambahVoucher.tambahVoucherBaru();
+})
+
 
 
 
