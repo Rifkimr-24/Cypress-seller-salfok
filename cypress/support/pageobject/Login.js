@@ -10,7 +10,7 @@ class LoginPage {
     cy.get('input[name="email"]', { timeout: 10000 })
       .should('be.visible')
       .and('not.be.disabled')
-      .type('rifki.rahman@salfok.com');
+      .type('maulana10rifki@gmail.com');
 
     cy.wait(1500);
 
@@ -18,10 +18,11 @@ class LoginPage {
       .should('be.visible')
       .and('not.be.disabled')
       .type('Bandung1993!');
+    cy.wait(2000);
 
-    cy.wait(4000);
 
     cy.get('button[type="submit"]').click();
+    cy.wait(15000);
 
     // verifikasi login berhasil
     cy.get('[alt="salfok logo"]').should('be.visible');
