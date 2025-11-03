@@ -9,21 +9,21 @@ class tambahVoucher {
 
      // Masuk ke menu Voucher
      cy.contains('button','Voucher').click();
-     cy.wait(1000);
-     // cy.contains('p', 'Voucher').should('be.visible');
+     cy.wait(2000);
+     cy.contains('p', 'Voucher').should('be.visible');
 
      // Klik button Buat Voucher
      cy.contains('button', 'Buat Voucher').click();
-     cy.wait(1000);
+     cy.wait(1700);
 
      // INFORMASI UMUM
      // Masukan Nama Voucher
      cy.get('input[placeholder="Masukan nama voucher"]').type(fakeData.voucherName);
-     cy.wait(1000);
+     cy.wait(1700);
      
      // Masukan Kode Voucher
      cy.get('input[placeholder="Masukan kode voucher"]').type(fakeData.voucherCode);
-     cy.wait(1000);
+     cy.wait(1700);
 
      // Tipe Voucher
      cy.contains('[data-slot="select-trigger"]', 'Produk').click();
@@ -83,13 +83,9 @@ class tambahVoucher {
      cy.wait(2000);
 
      // Hapus Voucher
-     //cy.get('button[data-slot="dropdown-menu-trigger"]').first().click();
 
-     // Tunggu menu muncul
-     //cy.get('div[role="menuitem"]').contains('Hapus', { timeout: 5000 }).should('be.visible').click();
 
-     //cy.contains('button', 'Hapus').click();
-     //cy.contains('Voucher berhasil dihapus', { timeout: 10000 }).should('be.visible');
+
 
 
 

@@ -35,7 +35,7 @@ export const fakeData = {
   nominalRandom: faker.finance.amount(10000, 1000000, 2), // Nominal random (2 desimal)
 
   // 🎟️ Data Voucher
-  voucherCode: `VCHR-${faker.string.alphanumeric(6).toUpperCase()}`, // Kode unik voucher
+  voucherCode: `VCHR${faker.string.alphanumeric(8).toUpperCase().replace(/[^A-Z0-9]/g, '')}`, // Kode unik voucher
   voucherName: faker.commerce.productAdjective() + ' Promo',         // Nama voucher
   discountPercent: faker.number.int({ min: 5, max: 80 }),            // Diskon 5–80%
   discountFixPrice: faker.number.int({ min: 20000, max: 80000 }),    // Diskon Potongan Harga Tetap
