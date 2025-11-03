@@ -96,9 +96,13 @@ import tambahVoucher from '../support/pageobject/createVoucher'
 // Tambah Voucher
 Cypress.Commands.add('tambahVoucher', () => {
 tambahVoucher.tambahVoucherBaru();
-})
+});
 
-
+import rekeningBank from '../support/pageobject/addATMcard';
+// Tambah Rekening Bank
+Cypress.Commands.add('rekeningBank', () => {
+rekeningBank.addATMbank();
+});
 
 
 

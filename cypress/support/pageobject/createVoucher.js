@@ -13,8 +13,15 @@ class tambahVoucher {
      cy.contains('p', 'Voucher').should('be.visible');
 
      // Klik button Buat Voucher
-     cy.contains('button', 'Buat Voucher').click();
-     cy.wait(1700);
+     // cy.contains('button', 'Buat Voucher').click();
+     cy.contains('button', 'Buat Voucher', { timeout: 10000 })
+     .should('exist')
+     .should('be.visible')
+     .should('not.be.disabled')
+     .scrollIntoView()
+     .click({ force: true });
+
+     cy.wait(2000);
 
      // INFORMASI UMUM
      // Masukan Nama Voucher
@@ -83,6 +90,9 @@ class tambahVoucher {
      cy.wait(2000);
 
      // Hapus Voucher
+     // Klik tombol titik tiga
+     
+
 
 
 
