@@ -32,6 +32,7 @@ class rekeningBank {
      cy.contains('div', /^BNI \(Bank Negara Indonesia\)$/)
      .should('be.visible')
      .click();
+     cy.wait(2000);
 
      // Masukan Nomer Rekening 0837126535
      cy.get('input[placeholder="Ketik Nomor Rekening"]').type('0837126535');
@@ -57,6 +58,19 @@ class rekeningBank {
      cy.contains('button', 'Buat Rekening').click();
      cy.contains('Rekening berhasil ditambahkan', { timeout: 10000 }).should('be.visible');
      cy.wait(2000);
+
+     // Hapus Rekening
+     cy.get('div[class="flex justify-between items-start"]').click();
+     cy.wait(1000);
+     cy.contains('h2', 'Izin diperlukan').should('be.visible');
+     cy.get('input[placeholder="Masukan kata sandi"]').type('Bandung1993!');
+     cy.wait(2000);
+     cy.contains('button', 'Konfirmasi').click();
+     cy.wait(2000);
+     cy.contains('h2', 'Detail Rekening Bank').should('be.visible');
+     cy.wait(1000);
+     cy.contains('button', 'Hapus').click();
+     cy.contains('Rekening berhasil dihapus', { timeout: 10000 }).should('be.visible');
 
 
 
