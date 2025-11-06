@@ -1,4 +1,5 @@
 const loginSuccesful = require ('../pageobject/Login'); 
+import { fakeData } from '../faker';
 
 class tambahProduk {
  tambahProdukBaru () {
@@ -24,7 +25,7 @@ class tambahProduk {
      // Masukan Link Youtube
      cy.get('input[name="videoUrl"]').type('https://www.youtube.com/watch?v=-WN-sGhqjIA');
      // Masukan Nama Produk
-     cy.get('input[name="name"]').type('Kaos Contoh');
+     cy.get('input[name="name"]').type(fakeData.productName);
      // Masukan Kategori
      cy.get('div.cursor-pointer').contains('Pilih kategori produk').click();
      cy.wait(2000);
@@ -33,7 +34,7 @@ class tambahProduk {
      cy.contains('button', 'Pakaian Pria').click();
      cy.contains('button', 'Terapkan Kategori').click();
      // Masukan Deksripsi
-     cy.get('div[contenteditable="true"]').click({ force: true }).type('Baju ini adalah baju testing');
+     cy.get('div[contenteditable="true"]').click({ force: true }).type(fakeData.productDesc);
      cy.wait(800);
 
      // Informasi Pesanan
