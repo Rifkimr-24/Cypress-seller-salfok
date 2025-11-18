@@ -1,6 +1,6 @@
 class LoginPage {
   loginSuccesful() {
-    cy.visit('https://dev.salfok.com/business/login');
+    cy.visit('https://salfok.com/business/login');
 
     // verifikasi judul halaman
     cy.get('[data-slot="card-title"]').should('have.text', 'Masuk');
