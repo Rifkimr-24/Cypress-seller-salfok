@@ -42,7 +42,9 @@ class rekeningBank {
      cy.contains('button', 'Validasi').click();
      cy.wait(3000);
 
-     cy.contains('div', 'Apakah akun bank ini benar?').should('be.visible');
+     cy.contains('div', 'Apakah akun bank ini benar?')
+     .should('exist')
+     .and('be.visible');
 
      // Konfirmasi
      cy.contains('button', 'Konfirmasi').click();

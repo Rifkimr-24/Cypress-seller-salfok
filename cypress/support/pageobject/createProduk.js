@@ -4,15 +4,22 @@ import { fakeData } from '../faker';
 class tambahProduk {
  tambahProdukBaru () {
      //Login Akun
-     cy.loginSuccesful("rifki.rahman@salfok.com", "Bandung1993!");
+     cy.loginSuccesful();
      //Pergi ke Menu Produk
      cy.contains('button','Produk').click();
-     cy.wait(1500);
+     cy.wait(3000);
      //Tambah Produk
-     cy.contains('Kelola Produk').should('be.visible');
-     cy.contains('button', 'Tambah Produk').click();
-     //cy.get('button[data-slot="dropdown-menu-trigger"]').click();
-     cy.contains('a','Tambah Produk').click();
+     cy.contains('Kelola Produk').should('exist').and('be.visible');
+     cy.wait(3000);
+     // Klik Tambah Produk
+     cy.get('button[data-slot="dropdown-menu-trigger"]')
+     .should('be.visible')
+     .and('contain', 'Tambah Produk')
+     .click();
+
+
+     cy.wait(1000)
+     cy.contains('a','Tambah Produk').should('be.visible').click();
      cy.contains('section', 'Informasi Produk').should('be.visible');
 
      //Informasi Produk
