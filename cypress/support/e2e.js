@@ -16,5 +16,5 @@ import 'cypress-file-upload';
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import 'cypress-xpath';
-import './faker';
+import 'cypress-xpath'
+import'./faker';

@@ -1,31 +1,36 @@
 const loginSuccesful = require ('../pageobject/Login'); 
-import { fakeData } from '../faker';
+import { fakeData } from '../faker'
 
 class tambahProduk {
  tambahProdukBaru () {
-     //Login Akun
+     // Login Akun
      cy.loginSuccesful();
-     //Pergi ke Menu Produk
-     cy.contains('button','Produk').click();
-     cy.wait(3000);
-     //Tambah Produk
-     cy.contains('Kelola Produk').should('exist').and('be.visible');
-     cy.wait(3000);
+     
+     // Pergi ke Menu Produk
+     cy.contains('button','Produk').should('be.visible').click();
+    
+     // Assertion Tambah Produk
+     cy.contains('p','Kelola Produk').should('exist').and('be.visible');
+
+     
      // Klik Tambah Produk
-     cy.get('button[data-slot="dropdown-menu-trigger"]')
+     cy.contains('button', 'Tambah Produk', { timeout: 10000 })
      .should('be.visible')
-     .and('contain', 'Tambah Produk')
      .click();
 
+     cy.contains('p', 'Tambah Produk', { timeout: 10000})
+     .click();
+  
 
-     cy.wait(1000)
-     cy.contains('a','Tambah Produk').should('be.visible').click();
+
+     cy.wait(3000)
+    
      cy.contains('section', 'Informasi Produk').should('be.visible');
 
-     //Informasi Produk
-     //Upload Image
+     // Informasi Produk
+     // Upload Image
      cy.contains('span', 'Upload Image').click();
-      // Upload gambar
+     // Upload gambar
      cy.get('input[type="file"]').attachFile('images/foto-produk.jpg', { force: true });
      cy.wait(1000);
      cy.get('button svg.lucide-trash2').should('exist');
@@ -47,26 +52,27 @@ class tambahProduk {
      // Informasi Pesanan
      // SKU
      cy.wait(2000);
-     cy.get('input[name="skuProduct"]').type('Baju Testing');
+     cy.get('input[name="skuProduct"]', { timeout: 10000 } ).type('Baju Testing');
      cy.wait(800);
 
      // Harga
-     cy.wait(2000);
      cy.get('input[name="price"]').click()
      .type('{selectall}{backspace}150000');
-     cy.wait(500);
 
      // Stok
      cy.wait(2000);
      cy.get('input[name="stock"]').click()
      .type('{selectall}{backspace}100');
-     cy.wait(500);
 
      // Berat
-     cy.wait(2000)
-     cy.get('input[name="weight.value"]').click()
-     .type('{selectall}{backspace}300');
-     cy.wait(500)
+     cy.contains('label', 'Berat')
+     .parent()            // naik ke container
+     .find('input')       // ambil input di dalamnya
+     .clear()             // hapus value sebelumnya
+     .type('350')
+
+
+     cy.wait(2000);
      cy.contains('kg').should('be.visible'); // optional: pastikan dropdown muncul
      cy.contains('g').click();
 
