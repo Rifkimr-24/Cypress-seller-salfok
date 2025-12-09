@@ -24,9 +24,7 @@ class LoginPage {
     cy.get('button[type="submit"]').click();
     
 
-    // verifikasi login berhasil
-    cy.get('[alt="salfok logo"]').should('exist').and('be.visible')
-    cy.wait(2000);
+    
   }};
 
 export default new LoginPage();

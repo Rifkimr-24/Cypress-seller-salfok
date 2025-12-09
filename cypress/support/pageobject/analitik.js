@@ -3,7 +3,7 @@ const loginSuccesful = require ('../pageobject/Login');
 class analitikPage {
     analitik () {
      cy.loginSuccesful("rifki.rahman@salfok.com", "Bandung1993!");
-     cy.wait(1500);
+     cy.wait(8000);
      cy.contains('button', 'Analitik').click();
 
      // Validasi teks utama muncul

@@ -22,17 +22,15 @@ class rekeningBank {
      cy.get('button[data-cy="bank-combobox"]', { timeout: 10000 })
      .should('be.visible')
      .click();
-
-     // 2. Ketik nama bank di field search
+     
+      
+     // 3. Ketik nama bank di field search
      cy.get('input[placeholder="Search..."]', { timeout: 10000 })
      .should('be.visible')
      .type('BNI (Bank Negara Indonesia)');
+     cy.contains('li', /^BNI \(Bank Negara Indonesia\)$/).click();
 
-     // 3. Pilih bank spesifik (tanpa VA)
-     cy.contains('div', /^BNI \(Bank Negara Indonesia\)$/)
-     .should('be.visible')
-     .click();
-     cy.wait(2000);
+     
 
      // Masukan Nomer Rekening 0837126535
      cy.get('input[placeholder="Ketik Nomor Rekening"]').type('0837126535');
