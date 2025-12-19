@@ -1,6 +1,6 @@
 class LoginPage {
   loginSuccesful() {
-    cy.visit('https://salfok.com/business/login');
+    cy.visit('https://salfok.dev/business/login');
 
     // verifikasi judul halaman
     cy.get('[data-slot="card-title"]').should('have.text', 'Masuk');
@@ -10,7 +10,7 @@ class LoginPage {
     cy.get('input[name="email"]', { timeout: 10000 })
       .should('be.visible')
       .and('not.be.disabled')
-      .type('maulana10rifki@gmail.com');
+      .type('rifki.rahman@salfok.com');
 
     cy.wait(1500);
 

@@ -89,9 +89,7 @@ class tambahVoucher {
      cy.contains('Voucher berhasil dibuat', { timeout: 10000 }).should('be.visible');
      cy.wait(2000);
 
-     // Hapus Voucher
-     // Klik tombol titik tiga
-     
+          
 
 
 

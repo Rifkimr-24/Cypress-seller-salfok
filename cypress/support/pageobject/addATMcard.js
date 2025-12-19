@@ -18,23 +18,22 @@ class rekeningBank {
 
      // Pilih Bank
 
-     // 1. Klik dropdown untuk membuka list
-     cy.get('button[data-cy="bank-combobox"]', { timeout: 10000 })
-     .should('be.visible')
-     .click();
      
-      
-     // 3. Ketik nama bank di field search
-     cy.get('input[placeholder="Search..."]', { timeout: 10000 })
-     .should('be.visible')
-     .type('BNI (Bank Negara Indonesia)');
-     cy.contains('li', /^BNI \(Bank Negara Indonesia\)$/).click();
-
-     
-
      // Masukan Nomer Rekening 0837126535
      cy.get('input[placeholder="Ketik Nomor Rekening"]').type('0837126535');
      cy.wait(2000);
+
+     // Klik dropdown untuk membuka list
+     cy.get('button[data-cy="bank-combobox"]', { timeout: 10000 })
+     .should('be.visible')
+     .click();
+
+     cy.get('input[data-cy="bank-combobox-searchInput"]')
+     .type('BNI (Bank Negara Indonesia)');
+
+     cy.contains('[role="option"]', /^BNI \(Bank Negara Indonesia\)$/)
+     .should('be.visible')
+     .click();
 
      // Validasi
      cy.contains('button', 'Validasi').click();
@@ -57,10 +56,10 @@ class rekeningBank {
      // Buat Rekening
      cy.contains('button', 'Buat Rekening').click();
      cy.contains('Rekening berhasil ditambahkan', { timeout: 10000 }).should('be.visible');
-     cy.wait(2000);
+     cy.wait(5000);
 
      // Hapus Rekening
-     cy.get('div[class="flex justify-between items-start"]').click();
+     cy.contains('span', 'BNI (Bank Negara Indonesia)').click();
      cy.wait(1000);
      cy.contains('h2', 'Izin diperlukan').should('be.visible');
      cy.get('input[placeholder="Masukan kata sandi"]').type('Bandung1993!');
